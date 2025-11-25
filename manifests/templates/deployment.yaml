@@ -1,0 +1,26 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-project-5eec03f2
+  labels:
+    app: mini-project-5eec03f2
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: mini-project-5eec03f2
+  template:
+    metadata:
+      labels:
+        app: mini-project-5eec03f2
+    spec:
+      serviceAccountName: ingress-manager
+      containers:
+        - name: mini-project-5eec03f2
+          image: docker.io/phengbunath/mini-project-5eec03f2:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
